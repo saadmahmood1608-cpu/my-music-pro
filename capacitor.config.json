@@ -1,0 +1,8 @@
+{
+  "appId": "com.mymusicpro.offline",
+  "appName": "My Music Pro",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
