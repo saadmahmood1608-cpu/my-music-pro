@@ -1,0 +1,278 @@
+:root {
+  --bg: #0c0c0e;
+  --surface: #18181c;
+  --surface-alt: #232329;
+  --accent: #fa243c;
+  --text: #ffffff;
+  --muted: #8e8e93;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: calc(env(safe-area-inset-top) + 8px) 14px calc(env(safe-area-inset-bottom) + 10px);
+}
+
+header {
+  flex-shrink: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #26262c;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.stats-pill {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.add-btn {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#fileInput {
+  position: fixed;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.search-row {
+  display: flex;
+  gap: 8px;
+}
+
+#searchInput {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid #2c2c34;
+  color: var(--text);
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+#sortSelect {
+  background: var(--surface);
+  border: 1px solid #2c2c34;
+  color: var(--text);
+  padding: 9px 8px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.status-bar {
+  margin-top: 8px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: var(--surface-alt);
+  color: #ffd60a;
+  font-size: 12px;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.scroll-viewport {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  margin: 8px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.virtual-spacer {
+  position: relative;
+  width: 100%;
+}
+
+.virtual-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.song-row {
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-bottom: 6px;
+  border-radius: 11px;
+  background: var(--surface);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.song-row.active {
+  border-color: var(--accent);
+  background: #221619;
+}
+
+.song-row.active .song-title {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.song-meta {
+  flex: 1;
+  min-width: 0;
+  padding-right: 8px;
+}
+
+.song-title {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.row-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 16px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.icon-btn.fav-on {
+  color: #ffd60a;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 60px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.player {
+  flex-shrink: 0;
+  background: var(--surface);
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid #26262e;
+}
+
+.now-playing {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+#seekBar {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.ctrl-btn {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+
+.ctrl-btn.active-mode {
+  color: var(--accent);
+}
+
+.play-btn {
+  background: var(--accent);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pro-tools {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.pro-tools select {
+  background: var(--surface-alt);
+  color: var(--text);
+  border: 1px solid #30303a;
+  border-radius: 8px;
+  padding: 7px 4px;
+  font-size: 12px;
+  text-align: center;
+}
