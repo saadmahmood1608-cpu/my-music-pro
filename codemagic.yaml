@@ -6,17 +6,23 @@ workflows:
     environment:
       node: latest
       xcode: latest
+      cocoapods: default
     scripts:
       - name: Install dependencies
         script: npm install
       - name: Sync Capacitor iOS
         script: npx cap sync ios
+      - name: Install CocoaPods
+        script: |
+          cd ios/App
+          pod install
       - name: Build Unsigned Archive
         script: |
-          xcodebuild -project ios/App/App.xcodeproj \
+          xcodebuild -workspace ios/App/App.xcworkspace \
             -scheme App \
             -configuration Release \
             -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
             -archivePath $CM_BUILD_DIR/App.xcarchive \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
